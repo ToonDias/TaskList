@@ -28,10 +28,6 @@ Connection.authenticate()
         console.log(`Conexão falou! Erro: ${error}`);
     });
 
-app.get("/", (req, res) => {
-    res.render("tasks/index");
-});
-
 app.listen(8080, () => {
     console.log("Servidor rodando na URL: http://localhost:8080");
 });

@@ -1,6 +1,26 @@
 <%- include('../../header.ejs') %>
 <%- include('../../nav.ejs') %>
 <body>
-    <h1>create</h1>
+    <div class="container">
+        <br>
+        <div class="card">         
+            <div class="card-header">
+                <h2>Nova tarefa</h2>
+            </div>
+            <div class="card-body">
+                <form action="/admin/tasks/save" method="POST">
+                    <input type="text" name="nome" class="form-control" placeholder="Nome da tarefa"><br>
+                    <input type="text" name="responsavel" class="form-control" placeholder="Responsavel pela tarefa"><br>
+                    <select name="status" class="form-control">
+                        <option value="1">Aberta</option>
+                        <option value="2">Pendente</option>
+                        <option value="3">Encerrada</option>
+                    </select>
+                    <br>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 <%- include('../../footer.ejs') %>

@@ -14,15 +14,14 @@ router.get("/admin/tanks", (req, res) => {
 });
 
 router.get("/admin/tasks/new", (req, res) => {
-    res.render("admin/tanks/create");
+    res.render("admin/tasks/create");
 });
 
 router.post("admin/tasks/save", (req, res) => {
-    var id = req.body.id;
     var nome = req.body.nome;
     var status = req.body.status;
     var responsavel = req.body.respnsalvel;
-    res.json({id, nome, status,responsavel});    
+    res.json({nome, status,responsavel});    
 });
 
 router.get("/admin/tasks/edit/:id", (req, res) => {
