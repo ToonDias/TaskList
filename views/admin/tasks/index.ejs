@@ -1,6 +1,39 @@
 <%- include('../../header.ejs') %>
 <%- include('../../nav.ejs') %>
 <body>
-    <h1>lis</h1>
+    <div class="container">
+        <br>
+        <a href="/admin/tasks/new" class="btn btn-success">Nota tarefa</a>
+        <br>
+        <br>
+        <table class="table table-striped table-bordered">
+            <thead class="table-primary">
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Status</th>
+                    <th>Respotavel</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tasks.forEach( task => { %>
+                <tr>
+                    <td><%= task.id %></td>
+                    <td><%= task.nome %></td>
+                    <td><%= task.status %></td>
+                    <td><%= task.responsavel %></td>
+                    <td>
+                        <a href="/admin/tasks/edit/<%= task.id %>" class="btn btn-warning">Editar</a>
+                        <form action="/admin/tasks/delete" method="POST" style="display: inline-block;">
+                            <input type="hidden" name="id" value="<%= task.id %>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
 </body>
 <%- include('../../footer.ejs') %>

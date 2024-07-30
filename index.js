@@ -28,6 +28,10 @@ Connection.authenticate()
         console.log(`Conexão falou! Erro: ${error}`);
     });
 
+app.get("/", (req, res) => {
+    res.redirect("/admin/tasks");
+});
+
 app.listen(8080, () => {
     console.log("Servidor rodando na URL: http://localhost:8080");
 });
