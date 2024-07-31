@@ -23,9 +23,9 @@
                     <td><%= task.nome %></td>
                     <td><%= task.status %></td>
                     <td><%= task.responsavel %></td>
-                    <td>
+                    <td class="text-center">
                         <a href="/admin/tasks/edit/<%= task.id %>" class="btn btn-warning">Editar</a>
-                        <form action="/admin/tasks/delete" method="POST" style="display: inline-block;">
+                        <form action="/admin/tasks/delete" method="POST" style="display: inline-block;" onsubmit="toSubmit(event, this)">
                             <input type="hidden" name="id" value="<%= task.id %>">
                             <button class="btn btn-danger">Deletar</button>
                         </form>
@@ -35,5 +35,16 @@
             </tbody>
         </table>
     </div>
+    <br>
 </body>
 <%- include('../../footer.ejs') %>
+
+<script>
+    function toSubmit(event, form){
+        event.preventDefault();
+        var decision = confirm("Deseja deletar essa tarefa?");
+        if(decision){
+            form.submit();
+        }
+    }
+</script>

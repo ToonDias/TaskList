@@ -9,12 +9,13 @@
             </div>
             <div class="card-body">
                 <form action="/admin/tasks/saveupdate" method="POST">
-                    <input type="text" name="nome" class="form-control" placeholder="<%= task.nome %>"><br>
-                    <input type="text" name="responsavel" class="form-control" placeholder="<%= task.responsavel %>"><br>
+                    <input type="text" name="nome" class="form-control" value="<%= task.nome %>"><br>
+                    <input type="text" name="responsavel" class="form-control" value="<%= task.responsavel %>"><br>
+                    <input type="hidden" name="id" value="<%= task.id %>">
                     <select name="status" class="form-select">
-                        <option value="1">Aberta</option>
-                        <option value="2">Pendente</option>
-                        <option value="3">Encerrada</option>
+                        <option value="Aberta">Aberta</option>
+                        <option value="Pendente">Pendente</option>
+                        <option value="Encerrada">Encerrada</option>
                     </select>
                     <br>
                     <button type="submit" class="btn btn-success">Atualizar</button>
