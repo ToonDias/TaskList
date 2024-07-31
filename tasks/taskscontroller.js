@@ -50,7 +50,13 @@ router.post("/admin/tasks/saveupdate", (req, res) =>{
     var nome = req.body.nome;
     var status = req.body.status;
     var responsavel = req.body.responsavel;
-    res.json({id, nome, status,responsavel}); 
+
+    if(id != undefined){
+        Task.update({nome: nome, status: status, responsavel: responsavel},{ where: {id: id}})
+        .then(() => { res.redirect("/admin/tasks"); });
+    }else{
+        res.redirect("/");
+    }
 });
 
 router.post("/admin/tasks/delete", (req, res) => {
