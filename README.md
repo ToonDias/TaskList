@@ -4,13 +4,9 @@
 
 2 - Modulos usados: 
     - Express
-
     - Sequelize
-
     - mysql2
-
     - EJS
-
     - body-parse
 
 3 - Conteúdo será usado como base, para projeto TaskSystem.
